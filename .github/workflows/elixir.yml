@@ -81,12 +81,12 @@ jobs:
         run: mix test
         env:
           POSTGRES_PORT: 5432
-      # - name: Check Code Coverage
-      #   run: mix coveralls.github
-      #   env:
-      #     POSTGRES_PORT: 5432
-      #     MIX_ENV: test
-      #     COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN}}
+      - name: Check Code Coverage
+        run: mix coveralls.github
+        env:
+          POSTGRES_PORT: 5432
+          MIX_ENV: test
+          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN}}
       - name: Notify Discord about Status
         uses: sarisia/actions-status-discord@v1
         if: always()
