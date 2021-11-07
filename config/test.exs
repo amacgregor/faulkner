@@ -10,6 +10,7 @@ config :faulkner, Faulkner.Repo,
   password: "postgres",
   database: "faulkner_test#{System.get_env("MIX_TEST_PARTITION")}",
   hostname: "localhost",
+  port: System.get_env("POSTGRES_PORT"),
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: 10
 
