@@ -73,7 +73,11 @@ defmodule Faulkner.MixProject do
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       check: ["format --check-formatted"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
-      "assets.deploy": ["esbuild default --minify", "phx.digest"]
+      "assets.deploy": [
+        "cmd --cd assets npm run deploy",
+        "esbuild default --minify",
+        "phx.digest"
+      ]
     ]
   end
 end
