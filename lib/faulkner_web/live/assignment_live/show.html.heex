@@ -1,0 +1,47 @@
+<h1>Show Assignment</h1>
+
+<%= if @live_action in [:edit] do %>
+  <%= live_modal FaulknerWeb.AssignmentLive.FormComponent,
+    id: @assignment.id,
+    title: @page_title,
+    action: @live_action,
+    assignment: @assignment,
+    return_to: Routes.assignment_show_path(@socket, :show, @assignment) %>
+<% end %>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @assignment.title %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @assignment.description %>
+  </li>
+
+  <li>
+    <strong>Tags:</strong>
+    <%= @assignment.tags %>
+  </li>
+
+  <li>
+    <strong>Status:</strong>
+    <%= @assignment.status %>
+  </li>
+
+  <li>
+    <strong>Started at:</strong>
+    <%= @assignment.started_at %>
+  </li>
+
+  <li>
+    <strong>Deadline:</strong>
+    <%= @assignment.deadline %>
+  </li>
+
+</ul>
+
+<span><%= live_patch "Edit", to: Routes.assignment_show_path(@socket, :edit, @assignment), class: "button" %></span> |
+<span><%= live_redirect "Back", to: Routes.assignment_index_path(@socket, :index) %></span>

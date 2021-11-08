@@ -18,6 +18,14 @@ defmodule FaulknerWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+
+    live "/assignment", AssignmentLive.Index, :index
+    live "/assignment/new", AssignmentLive.Index, :new
+    live "/assignment/:id/edit", AssignmentLive.Index, :edit
+
+    live "/assignment/:id", AssignmentLive.Show, :show
+    live "/assignment/:id/show/edit", AssignmentLive.Show, :edit
+
   end
 
   # Other scopes may use custom stacks.
