@@ -8,7 +8,9 @@
     "postcss": "^8.3.11",
     "tailwindcss": "^2.2.19"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "postcss-import": "^14.0.2"
+  },
   "scripts": {
     "deploy": "NODE_ENV=production postcss css/app.css -o ../priv/static/assets/app.css"
   },
