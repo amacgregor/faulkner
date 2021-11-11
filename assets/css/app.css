@@ -8,3 +8,7 @@
 html {
   font-family: "Inter var";
 }
+
+.date-select select {
+  @apply max-w-sm shadow-sm block focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border border-gray-300 rounded-md
+}

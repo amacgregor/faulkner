@@ -1,38 +1,53 @@
 <div>
-  <h2><%= @title %></h2>
+  <h2 class="text-lg leading-6 font-medium text-gray-900"><%= @title %></h2>
 
   <.form
     let={f}
     for={@changeset}
     id="assignment-form"
+    class="space-y-8 divide-y divide-gray-200"
     phx-target={@myself}
     phx-change="validate"
     phx-submit="save">
-  
-    <%= label f, :title %>
-    <%= text_input f, :title %>
-    <%= error_tag f, :title %>
-  
-    <%= label f, :description %>
-    <%= text_input f, :description %>
-    <%= error_tag f, :description %>
-  
-    <%= label f, :tags %>
-    <%= multiple_select f, :tags, ["Option 1": "option1", "Option 2": "option2"] %>
-    <%= error_tag f, :tags %>
-  
-    <%= label f, :status %>
-    <%= select f, :status, Ecto.Enum.values(Faulkner.Writing.Assignment, :status), prompt: "Choose a value" %>
-    <%= error_tag f, :status %>
-  
-    <%= label f, :started_at %>
-    <%= datetime_select f, :started_at %>
-    <%= error_tag f, :started_at %>
-  
-    <%= label f, :deadline %>
-    <%= datetime_select f, :deadline %>
-    <%= error_tag f, :deadline %>
-  
+    <div class="mt-6 sm:mt-5 space-y-6 sm:space-y-5">
+
+      <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+      <%= label f, :title, class: "block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2" %>
+      <%= text_input f, :title, class: "max-w-lg shadow-sm block w-full focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border border-gray-300 rounded-md"  %>
+      <%= error_tag f, :title %>
+      </div>
+    
+      <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+      <%= label f, :description, class: "block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2" %>
+      <%= textarea f, :description, class: "max-w-lg shadow-sm block w-full focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border border-gray-300 rounded-md" %>
+      <%= error_tag f, :description %>
+      </div>
+    
+      <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+      <%= label f, :tags, class: "block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"  %>
+      <%= multiple_select f, :tags, ["Option 1": "option1", "Option 2": "option2"], class: "max-w-lg shadow-sm block w-full focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border border-gray-300 rounded-md"  %>
+      <%= error_tag f, :tags %>
+      </div>
+    
+      <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+      <%= label f, :status, class: "block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"  %>
+      <%= select f, :status, Ecto.Enum.values(Faulkner.Writing.Assignment, :status), prompt: "Choose a value", class: "max-w-lg shadow-sm block w-full focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border border-gray-300 rounded-md"  %>
+      <%= error_tag f, :status %>
+      </div>
+    
+      <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5 date-select">
+      <%= label f, :started_at, class: "block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2" %>
+      <div class="sm:grid sm:grid-cols-5 col-span-2"><%= date_select f, :started_at %></div>
+      <%= error_tag f, :started_at %>
+      </div>
+    
+      <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5 date-select">
+      <%= label f, :deadline, class: "block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"  %>
+      <div class="sm:grid sm:grid-cols-5 col-span-2"><%= date_select f, :deadline %></div>
+      <%= error_tag f, :deadline %>
+      </div>
+
+    </div>
     <div>
       <%= submit "Save", phx_disable_with: "Saving..." %>
     </div>
