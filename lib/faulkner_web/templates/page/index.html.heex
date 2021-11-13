@@ -6,6 +6,14 @@
 
 </section>
 
+
+<div x-data="{msg: 'Alpine works!'}">
+  <span x-text="msg">Alpine does not work</span>
+</div>
+<div x-data="{ isOpen: true }">
+  <button x-on:click=" isOpen = !isOpen">Toggle</button>
+  <h1 x-show="isOpen">Alpinjs</h1>
+</div>
 <section class="row">
   <article class="column">
     <h2>Resources</h2>

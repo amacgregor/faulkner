@@ -16,12 +16,36 @@
 <div class="grid grid-cols-2 h-screen">
     <div class="col-span-1 border-r-2">
         <div class="hidden sm:block">
-            <div class="border-b border-gray-200">
-            <nav class="-mb-px flex" aria-label="Tabs">
-                <a href="#" class="tab-inactive">Outline</a>
-                <a href="#" class="tab-inactive">Notes</a>
-                <a href="#" class="tab-inactive">Preview</a>
-            </nav>
+            <div x-data="{ tab: 'preview' }" class="border-b border-gray-200">
+                <nav class="-mb-px flex" aria-label="Tabs">
+                    <a :class="{ 'tab-active': tab === 'outline' }" x-on:click.prevent="tab = 'outline'" href="#" class="tab-inactive">Outline</a>
+                    <a :class="{ 'tab-active': tab === 'notes' }" x-on:click.prevent="tab = 'notes'" href="#" class="tab-inactive">Notes</a>
+                    <a :class="{ 'tab-active': tab === 'preview' }" x-on:click.prevent="tab = 'preview'" href="#" class="tab-inactive">Preview</a>
+                </nav>
+                <div x-show="tab === 'outline'">
+                <h3>Outline</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed cursus
+                    facilisis tristique. Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit. 
+                </p>
+                </div>
+                <div x-show="tab === 'notes'">
+                <h3>Notes</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed cursus
+                    facilisis tristique. Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit. 
+                </p>
+                </div>
+                <div x-show="tab === 'preview'">
+                <h3>Preview</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed cursus
+                    facilisis tristique. Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit. 
+                </p>
+                </div>
             </div>
         </div>
     </div>
