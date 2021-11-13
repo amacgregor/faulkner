@@ -3,6 +3,8 @@ defmodule FaulknerWeb.AssignmentLive.FormComponent do
 
   alias Faulkner.Writing
 
+  import FaulknerWeb.Helpers.Forms
+
   @impl true
   def update(%{assignment: assignment} = assigns, socket) do
     changeset = Writing.change_assignment(assignment)

@@ -50,6 +50,10 @@ defmodule Faulkner.Writing do
 
   """
   def create_assignment(attrs \\ %{}) do
+    attrs = attrs
+    |> Map.replace("deadline", date_from_map(attrs["deadline"]))
+    |> Map.replace("started_at", date_from_map(attrs["started_at"]))
+
     %Assignment{}
     |> Assignment.changeset(attrs)
     |> Repo.insert()
@@ -100,5 +104,12 @@ defmodule Faulkner.Writing do
   """
   def change_assignment(%Assignment{} = assignment, attrs \\ %{}) do
     Assignment.changeset(assignment, attrs)
+  end
+
+  defp date_from_map(_ = %{"day" => d, "month" => m, "year" => y}) do
+    {:ok, date} = Date.new(String.to_integer(y), String.to_integer(m), String.to_integer(d))
+    {:ok, datetime} = NaiveDateTime.new(date, ~T[00:00:00])
+
+    datetime
   end
 end
