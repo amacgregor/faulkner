@@ -56,7 +56,8 @@ defmodule Faulkner.MixProject do
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:excoveralls, "~> 0.10", only: :test}
+      {:excoveralls, "~> 0.10", only: :test},
+      {:earmark, "~> 1.4"}
     ]
   end
 

@@ -38,20 +38,15 @@
                     elit. 
                 </p>
                 </div>
-                <div x-show="tab === 'preview'">
-                <h3>Preview</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed cursus
-                    facilisis tristique. Lorem ipsum dolor sit amet, consectetur adipiscing
-                    elit. 
-                </p>
+                <div id="preview" class="prose" x-show="tab === 'preview'">
+                  <%= raw(@post.body) %>
                 </div>
             </div>
         </div>
     </div>
     <div class="col-span-1">
         <div class="markdown-entry">
-            <textarea class="h-screen w-full text-white bg-gray-900" ></textarea>
+            <textarea phx-keyup="render_preview" class="h-screen w-full text-white bg-gray-900" ></textarea>
         </div>
     </div>
 </div>
