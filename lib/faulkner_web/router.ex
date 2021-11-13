@@ -26,6 +26,8 @@ defmodule FaulknerWeb.Router do
     live "/assignment/:id", AssignmentLive.Show, :show
     live "/assignment/:id/show/edit", AssignmentLive.Show, :edit
 
+    live "/assignment/:id/write", AssignmentLive.Write, :index
+
   end
 
   # Other scopes may use custom stacks.

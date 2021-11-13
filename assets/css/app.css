@@ -12,3 +12,11 @@ html {
 .date-select select {
   @apply max-w-sm shadow-sm block focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border border-gray-300 rounded-md
 }
+
+.tab-inactive {
+  @apply border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 w-1/4 py-4 px-1 text-center border-b-2 font-medium text-sm
+}
+
+.tab-active {
+  @apply border-indigo-500 text-indigo-600 w-1/4 py-4 px-1 text-center border-b-2 font-medium text-sm
+}
