@@ -16,8 +16,8 @@
 <div class="grid grid-cols-2 h-screen">
     <div class="col-span-1 border-r-2">
         <div class="hidden sm:block">
-            <div x-data="{ tab: 'preview' }" class="border-b border-gray-200">
-                <nav class="-mb-px flex" aria-label="Tabs">
+            <div x-data="{ tab: 'preview' }" class="border-b-0 border-gray-200">
+                <nav class="-mb-px flex bg-gray-100" aria-label="Tabs">
                     <a :class="{ 'tab-active': tab === 'outline' }" x-on:click.prevent="tab = 'outline'" href="#" class="tab-inactive">Outline</a>
                     <a :class="{ 'tab-active': tab === 'notes' }" x-on:click.prevent="tab = 'notes'" href="#" class="tab-inactive">Notes</a>
                     <a :class="{ 'tab-active': tab === 'preview' }" x-on:click.prevent="tab = 'preview'" href="#" class="tab-inactive">Preview</a>
