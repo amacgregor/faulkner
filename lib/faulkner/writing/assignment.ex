@@ -6,7 +6,10 @@ defmodule Faulkner.Writing.Assignment do
     field :deadline, :naive_datetime
     field :description, :string
     field :started_at, :naive_datetime
-    field :status, Ecto.Enum, values: [:planned, :writing, :editing, :unpublished, :published, :deleted]
+
+    field :status, Ecto.Enum,
+      values: [:planned, :writing, :editing, :unpublished, :published, :deleted]
+
     field :tags, {:array, :string}
     field :title, :string
 

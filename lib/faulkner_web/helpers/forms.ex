@@ -7,9 +7,9 @@ defmodule FaulknerWeb.Helpers.Forms do
   def formatted_date_select(form, field, opts \\ []) do
     builder = fn b ->
       [
-      b.(:day, []),
-      b.(:month, []),
-      b.(:year, [])
+        b.(:day, []),
+        b.(:month, []),
+        b.(:year, [])
       ]
     end
 

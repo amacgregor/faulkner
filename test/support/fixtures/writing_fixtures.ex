@@ -11,9 +11,9 @@ defmodule Faulkner.WritingFixtures do
     {:ok, assignment} =
       attrs
       |> Enum.into(%{
-        "deadline" =>  %{"day" => "07", "month" => "11", "year" => "2021"},
+        "deadline" => %{"day" => "07", "month" => "11", "year" => "2021"},
         "description" => "some description",
-        "started_at" =>  %{"day" => "07", "month" => "11", "year" => "2021"},
+        "started_at" => %{"day" => "07", "month" => "11", "year" => "2021"},
         "status" => :planned,
         "tags" => [],
         "title" => "some title"

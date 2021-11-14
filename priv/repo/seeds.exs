@@ -15,14 +15,16 @@ alias Faulkner.Writing
 alias Faulkner.Writing.Assignment
 
 Repo.delete_all(Assignment)
+
 Writing.create_assignment(%{
   "title" => "The Complete Guide To Elixir Secrets",
-  "description" => "Elixir leverages the Erlang VM, known for running low-latency, distributed, and fault-tolerant systems.",
+  "description" =>
+    "Elixir leverages the Erlang VM, known for running low-latency, distributed, and fault-tolerant systems.",
   "status" => :planned,
   "deadline" => %{"day" => "31", "month" => "12", "year" => "2021"},
   "started_at" => %{"day" => "15", "month" => "1", "year" => "2022"},
   "tags" => [
     "elixir",
     "functional-programming"
-  ],
+  ]
 })

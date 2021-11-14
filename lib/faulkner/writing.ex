@@ -50,9 +50,10 @@ defmodule Faulkner.Writing do
 
   """
   def create_assignment(attrs \\ %{}) do
-    attrs = attrs
-    |> Map.replace("deadline", date_from_map(attrs["deadline"]))
-    |> Map.replace("started_at", date_from_map(attrs["started_at"]))
+    attrs =
+      attrs
+      |> Map.replace("deadline", date_from_map(attrs["deadline"]))
+      |> Map.replace("started_at", date_from_map(attrs["started_at"]))
 
     %Assignment{}
     |> Assignment.changeset(attrs)
@@ -72,9 +73,10 @@ defmodule Faulkner.Writing do
 
   """
   def update_assignment(%Assignment{} = assignment, attrs) do
-    attrs = attrs
-    |> Map.replace("deadline", date_from_map(attrs["deadline"]))
-    |> Map.replace("started_at", date_from_map(attrs["started_at"]))
+    attrs =
+      attrs
+      |> Map.replace("deadline", date_from_map(attrs["deadline"]))
+      |> Map.replace("started_at", date_from_map(attrs["started_at"]))
 
     assignment
     |> Assignment.changeset(attrs)
@@ -116,6 +118,7 @@ defmodule Faulkner.Writing do
 
     datetime
   end
+
   defp date_from_map(_) do
     NaiveDateTime.local_now()
   end

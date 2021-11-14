@@ -8,7 +8,14 @@ defmodule Faulkner.WritingTest do
 
     import Faulkner.WritingFixtures
 
-    @invalid_attrs %{deadline: nil, description: nil, started_at: nil, status: nil, tags: nil, title: nil}
+    @invalid_attrs %{
+      deadline: nil,
+      description: nil,
+      started_at: nil,
+      status: nil,
+      tags: nil,
+      title: nil
+    }
 
     test "list_assignment/0 returns all assignment" do
       assignment = assignment_fixture()
@@ -21,7 +28,14 @@ defmodule Faulkner.WritingTest do
     end
 
     test "create_assignment/1 with valid data creates a assignment" do
-      valid_attrs = %{deadline: ~N[2021-11-07 01:48:00], description: "some description", started_at: ~N[2021-11-07 01:48:00], status: :planned, tags: [], title: "some title"}
+      valid_attrs = %{
+        deadline: ~N[2021-11-07 01:48:00],
+        description: "some description",
+        started_at: ~N[2021-11-07 01:48:00],
+        status: :planned,
+        tags: [],
+        title: "some title"
+      }
 
       assert {:ok, %Assignment{} = assignment} = Writing.create_assignment(valid_attrs)
       assert assignment.deadline == ~N[2021-11-07 01:48:00]
@@ -38,9 +52,19 @@ defmodule Faulkner.WritingTest do
 
     test "update_assignment/2 with valid data updates the assignment" do
       assignment = assignment_fixture()
-      update_attrs = %{deadline: ~N[2021-11-08 01:48:00], description: "some updated description", started_at: ~N[2021-11-08 01:48:00], status: :writing, tags: [], title: "some updated title"}
 
-      assert {:ok, %Assignment{} = assignment} = Writing.update_assignment(assignment, update_attrs)
+      update_attrs = %{
+        deadline: ~N[2021-11-08 01:48:00],
+        description: "some updated description",
+        started_at: ~N[2021-11-08 01:48:00],
+        status: :writing,
+        tags: [],
+        title: "some updated title"
+      }
+
+      assert {:ok, %Assignment{} = assignment} =
+               Writing.update_assignment(assignment, update_attrs)
+
       assert assignment.deadline == ~N[2021-11-08 01:48:00]
       assert assignment.description == "some updated description"
       assert assignment.started_at == ~N[2021-11-08 01:48:00]

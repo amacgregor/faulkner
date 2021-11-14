@@ -16,7 +16,7 @@ defmodule FaulknerWeb.AssignmentLive.Write do
      |> assign(:assignment, Writing.get_assignment!(id))}
   end
 
-  def handle_event("render_preview", %{"value" => raw},  %{assigns: %{post: post}} = socket) do
+  def handle_event("render_preview", %{"value" => raw}, %{assigns: %{post: post}} = socket) do
     IO.inspect(raw)
 
     {:ok, post} = Post.render(post, raw)
