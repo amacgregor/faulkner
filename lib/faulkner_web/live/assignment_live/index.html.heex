@@ -61,9 +61,10 @@
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= assignment.deadline %></td>
 
                   <td>
-                    <span><%= live_redirect "Show", to: Routes.assignment_show_path(@socket, :show, assignment) %></span>
-                    <span><%= live_patch "Edit", to: Routes.assignment_index_path(@socket, :edit, assignment) %></span>
-                    <span><%= link "Delete", to: "#", phx_click: "delete", phx_value_id: assignment.id, data: [confirm: "Are you sure?"] %></span>
+                    <span><%= live_redirect "Write", to: Routes.assignment_write_path(@socket, :index, assignment) %></span>
+                    <span class="hidden"><%= live_redirect "Show", to: Routes.assignment_show_path(@socket, :show, assignment) %></span>
+                    <span class="hidden"><%= live_patch "Edit", to: Routes.assignment_index_path(@socket, :edit, assignment) %></span>
+                    <span class="hidden"><%= link "Delete", to: "#", phx_click: "delete", phx_value_id: assignment.id, data: [confirm: "Are you sure?"] %></span>
                   </td>
                 </tr>
               <% end %>
